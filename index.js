@@ -1,10 +1,13 @@
 const inputItem = document.getElementById("input-item");
+const listaDeCompras = document.getElementById("lista-de-compras");
 let contador = 0; 
 
 const botaoAdicionar = document.getElementById('adicionar-item');
 
 botaoAdicionar.addEventListener("click", (event) => {
+
     event.preventDefault(); //impede que um link abra uma nova página
+
     if (inputItem.value === "") {
         alert("Por favor, insira um item!");
         return;
@@ -17,6 +20,19 @@ botaoAdicionar.addEventListener("click", (event) => {
     const inputCheckBox = document.createElement("input");
     inputCheckBox.type = "checkbox";
     inputCheckBox.id = "checkbox-"+ contador++;
+    const nomeItem = document.createElement("p");
+    nomeItem.innerText = inputItem.value;
+
+    containerItemDaLista.appendChild(inputCheckBox);
+    containerItemDaLista.appendChild(nomeItem);
+
+    itemDaLista.appendChild(containerItemDaLista);
+    listaDeCompras.appendChild(itemDaLista);
 
 
+    const diaDaSemana = new Date().toLocaleDateString("pt-BR", {
+        weekday: "long"
+    });
+    const data = new Date().toLocaleDateString("pt-BR");
+    console.log(data);
 });
