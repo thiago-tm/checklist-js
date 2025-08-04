@@ -1,6 +1,6 @@
 const inputItem = document.getElementById("input-item");
 const listaDeCompras = document.getElementById("lista-de-compras");
-let contador = 0; 
+let contador = 0;
 
 const botaoAdicionar = document.getElementById('adicionar-item');
 
@@ -19,11 +19,11 @@ botaoAdicionar.addEventListener("click", (event) => {
     containerItemDaLista.classList.add("lista-item-container");
     const inputCheckBox = document.createElement("input");
     inputCheckBox.type = "checkbox";
-    inputCheckBox.id = "checkbox-"+ contador++;
+    inputCheckBox.id = "checkbox-" + contador++;
     const nomeItem = document.createElement("p");
     nomeItem.innerText = inputItem.value;
 
-    inputCheckBox.addEventListener("click", function(){
+    inputCheckBox.addEventListener("click", function () {
         if (inputCheckBox.checked) {
             nomeItem.style.textDecoration = "line-through";
         } else {
@@ -36,18 +36,18 @@ botaoAdicionar.addEventListener("click", (event) => {
 
     itemDaLista.appendChild(containerItemDaLista);
 
-    
+
     const diaDaSemana = new Date().toLocaleDateString("pt-BR", {
         weekday: "long"
     });
 
     const data = new Date().toLocaleDateString("pt-BR");
-    const hora= new Date().toLocaleTimeString("pt-BR", {
+    const hora = new Date().toLocaleTimeString("pt-BR", {
         hour: "numeric",
-        minute: "numeric" 
+        minute: "numeric"
     });
 
-    const dataCompleta = `${diaDaSemana} (${data}) às ${hora}` ;
+    const dataCompleta = `${diaDaSemana} (${data}) às ${hora}`;
     const itemData = document.createElement("p");
     itemData.innerText = dataCompleta;
     itemData.classList.add("texto-data");
@@ -55,5 +55,5 @@ botaoAdicionar.addEventListener("click", (event) => {
 
     listaDeCompras.appendChild(itemDaLista);
 
- 
+
 });
